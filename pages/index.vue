@@ -19,6 +19,9 @@
           >GitHub</a
         >
       </div>
+      <NuxtLink to="/about">
+        About page
+      </NuxtLink>
     </div>
   </section>
 </template>
