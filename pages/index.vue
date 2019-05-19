@@ -38,6 +38,12 @@ export default {
   components: {
     Logo,
     HelloWorld
+  },
+  head() {
+    return {
+      titleTemplate: null,
+      title: 'サイト名'
+    }
   }
 }
 </script>

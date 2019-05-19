@@ -91,6 +91,10 @@ npm install --save firebase
 npm install --save stylus stylus-loader
 ```
 
+### OGPタグの設置
+
+nuxt.config.js（デフォルト）とpages/index.vue（上書き）、pages/about.vue（ページ毎）に設定
+
 ## Nuxtのデバック環境構築の手順
 
 ### 設定追加
@@ -130,8 +134,13 @@ nuxt.config.jsの63〜70に`config.devtool`の設定を追加
   "args": ["--watch","server"], // 追加
   "runtimeArgs": [], // 追加
   "env": { // 追加
-    "NODE_ENV": "development"
-  }
+    "NODE_ENV": "development",
+    "NODE_ENV_HOST": "local"
+  },
+  "sourceMaps": true, // 追加
+  "restart": true, // 追加
+  "console": "integratedTerminal", // 追加
+  "internalConsoleOptions": "neverOpen" // 追加
 }
 ```
 
@@ -147,10 +156,7 @@ nuxt.config.jsの63〜70に`config.devtool`の設定を追加
   "request": "launch",
   "name": "Launch Chrome",
   "url": "http://localhost:3000", // ポート番号を3000に修正
-  "webRoot": "${workspaceFolder}",
-  "runtimeArgs": [ // 追加
-    "--remote-debugging-port=9222"
-  ]
+  "webRoot": "${workspaceFolder}"
 },
 ```
 
