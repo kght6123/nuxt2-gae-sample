@@ -82,3 +82,7 @@ dist
 
 # Service worker
 sw.*
+
+# local env files
+env.local.js
+env.*.local.js

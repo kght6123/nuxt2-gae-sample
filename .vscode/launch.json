@@ -1,0 +1,38 @@
+{
+	// IntelliSense を使用して利用可能な属性を学べます。
+	// 既存の属性の説明をホバーして表示します。
+	// 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Launch Chrome",
+			"url": "http://localhost:3000",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program Node.js",
+			"program": "${workspaceFolder}/server/index.js",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
+			"args": ["--watch","server"],
+			"runtimeArgs": [],
+			"env": {
+				"NODE_ENV": "development",
+				"NODE_ENV_HOST": "local"
+			},
+			"sourceMaps": true,
+			"restart": true,
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		}
+	],
+	"compounds": [
+			{
+				"name": "Full-stack",
+				"configurations": ["Launch Program Node.js", "Launch Chrome"]
+			}
+	]
+}

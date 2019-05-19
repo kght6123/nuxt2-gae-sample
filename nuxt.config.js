@@ -1,5 +1,11 @@
 const pkg = require('./package')
 
+// read env.
+try { var defaultEnvConfig = require(`./env.js`) } catch (err) {}
+try { var nodeEnvConfig = require(`./env.${process.env.NODE_ENV}.js`) } catch (err) {}
+try { var nodeEnvHostConfig = require(`./env.${process.env.NODE_ENV}.${process.env.NODE_ENV_HOST}.js`) } catch (err) {}
+const envObj = Object.assign({}, defaultEnvConfig, nodeEnvConfig, nodeEnvHostConfig)
+
 module.exports = {
   mode: 'universal',
 
@@ -29,7 +35,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [ '~/plugins/firebase.js' ],
 
   /*
    ** Nuxt.js modules
@@ -67,6 +73,7 @@ module.exports = {
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
+        config.devtool = 'inline-cheap-module-source-map'
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
@@ -75,5 +82,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
+  env: envObj
 }

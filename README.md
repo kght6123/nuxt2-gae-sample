@@ -78,3 +78,80 @@ gcloud app browse
 OutOfMemoryError、F1は無理
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+### Firebase
+
+```sh
+npm install --save firebase
+```
+
+### Stylus
+
+```sh
+npm install --save stylus stylus-loader
+```
+
+## Nuxtのデバック環境構築の手順
+
+### 設定追加
+
+nuxt.config.jsの63〜70に`config.devtool`の設定を追加
+
+```json
+  build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.devtool = 'inline-cheap-module-source-map' // この行を追加
+        config.module.rules.push({
+
+        })
+      }
+    }
+  }
+```
+
+### Node.js側
+
+メニューの「デバック」⇨「構成を開く」⇨「Node.js」
+
+`.vscode/launch.json` のデバック構成を下記の様に修正
+
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Launch Program Node.js", // 修正
+  "program": "${workspaceFolder}/server/index.js",
+  "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon", // 追加
+  "args": ["--watch","server"], // 追加
+  "runtimeArgs": [], // 追加
+  "env": { // 追加
+    "NODE_ENV": "development"
+  }
+}
+```
+
+### Chrome側
+
+メニューの「デバック」⇨「構成を追加」⇨「Chrome: Launch」
+
+`.vscode/launch.json` の追加されたデバック構成を下記の様に修正
+
+```json
+{
+  "type": "chrome",
+  "request": "launch",
+  "name": "Launch Chrome",
+  "url": "http://localhost:3000", // ポート番号を3000に修正
+  "webRoot": "${workspaceFolder}",
+  "runtimeArgs": [ // 追加
+    "--remote-debugging-port=9222"
+  ]
+},
+```
+
+

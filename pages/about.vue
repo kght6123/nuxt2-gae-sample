@@ -1,7 +1,10 @@
 <template>
   <div>
     <p>Hi from {{ name }}</p>
-    <NuxtLink to="/">Home page</NuxtLink>
+    <form>
+      <div class="form-group"></div>
+      <NuxtLink to="/" class="btn btn-dark">Home page</NuxtLink>
+    </form>
   </div>
 </template>
 <script>

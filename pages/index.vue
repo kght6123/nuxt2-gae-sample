@@ -19,19 +19,25 @@
           >GitHub</a
         >
       </div>
-      <NuxtLink to="/about">
-        About page
-      </NuxtLink>
+      <form>
+        <div class="form-group"></div>
+        <NuxtLink to="/about" class="btn btn-dark">About page</NuxtLink>
+        <NuxtLink to="/signin" class="btn btn-info">Sign In</NuxtLink>
+        <NuxtLink to="/signup" class="btn btn-outline-info">Sign Up</NuxtLink>
+      </form>
     </div>
+    <HelloWorld msg="Welcome to Your Vue.js App." />
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import HelloWorld from '~/components/HelloWorld.vue'
 
 export default {
   components: {
-    Logo
+    Logo,
+    HelloWorld
   }
 }
 </script>
