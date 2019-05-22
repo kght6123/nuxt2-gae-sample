@@ -45,7 +45,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [ '~/plugins/firebase.js' ],
+  plugins: [ '~/plugins/firebase.js', { src: "~plugins/persistedstate.js", ssr: false } ],
 
   /*
    ** Nuxt.js modules
@@ -84,12 +84,12 @@ module.exports = {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.devtool = 'inline-cheap-module-source-map'
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+        // config.module.rules.push({
+        //   enforce: 'pre',
+        //   test: /\.(js|vue)$/,
+        //   loader: 'eslint-loader',
+        //   exclude: /(node_modules)/
+        // })
       }
     }
   },

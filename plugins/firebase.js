@@ -2,7 +2,7 @@ import Vue from 'vue'
 import firebase from 'firebase'
 
 /* eslint-disable */
-if (!Vue.prototype.$firebase) {
+if (!firebase.apps.length) {
   const config = {
     app: process.env.appName,
     apiKey: process.env.fbApiKey,

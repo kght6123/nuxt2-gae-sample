@@ -22,8 +22,16 @@
       <form>
         <div class="form-group"></div>
         <NuxtLink to="/about" class="btn btn-dark">About page</NuxtLink>
-        <NuxtLink to="/signin" class="btn btn-info">Sign In</NuxtLink>
-        <NuxtLink to="/signup" class="btn btn-outline-info">Sign Up</NuxtLink>
+        <!-- ログイン中に表示される画面 -->
+        <div v-if="isAuthenticated">
+          {{ user.email }}でログイン中です。{{ name }}<br>
+          <button @click="logout">Sign Out</button>
+        </div>
+        <!-- ログインしていない時に表示される画面 -->
+        <div v-else>
+          <NuxtLink to="/signin" class="btn btn-info">Sign In</NuxtLink>
+          <NuxtLink to="/signup" class="btn btn-outline-info">Sign Up</NuxtLink>
+        </div>
       </form>
     </div>
     <HelloWorld msg="Welcome to Your Vue.js App." />
@@ -34,6 +42,8 @@
 import Logo from '~/components/Logo.vue'
 import HelloWorld from '~/components/HelloWorld.vue'
 
+import { mapActions, mapState, mapGetters } from 'vuex'
+
 export default {
   components: {
     Logo,
@@ -43,6 +53,38 @@ export default {
     return {
       titleTemplate: null,
       title: 'サイト名'
+    }
+  },
+  data: function () {
+    return {
+      name: this.$firebase.auth().currentUser
+            ? this.$firebase.auth().currentUser.email
+            : ''
+    }
+  },
+  mounted() {
+    this.$firebase.auth().onAuthStateChanged((user) => {
+      this.setUser(user)
+      console.log(user)
+    })
+  },
+  computed: {
+    ...mapState({
+      user: state => state.auth.user
+    }),
+    ...mapGetters({ isAuthenticated: 'auth/isAuthenticated' })
+  },
+  methods : {
+    ...mapActions({ setUser: 'auth/setUser' }),
+    logout() {
+      this.$firebase.auth().signOut()
+      .then(() => {
+        this.setUser(null)
+        localStorage.removeItem('jwt')
+        this.$router.push('/signin')
+      }).catch((error) => {
+        alert(error)
+      })
     }
   }
 }

@@ -22,7 +22,8 @@
     "firebase": "^5.11.1",
     "nuxt": "^2.4.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",

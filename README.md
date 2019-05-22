@@ -95,6 +95,18 @@ npm install --save stylus stylus-loader
 
 nuxt.config.js（デフォルト）とpages/index.vue（上書き）、pages/about.vue（ページ毎）に設定
 
+### ESLintの無効
+
+```js
+/* eslint-disable */
+```
+
+### PersistedState
+
+```sh
+npm install --save vuex-persistedstate
+```
+
 ## Nuxtのデバック環境構築の手順
 
 ### 設定追加

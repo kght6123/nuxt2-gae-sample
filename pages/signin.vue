@@ -14,8 +14,9 @@
 </template>
 
 <script>
-/* eslint-disable */
-import firebase from 'firebase'
+
+import { mapActions, mapState, mapGetters } from 'vuex'
+
 export default {
   name: 'Signin',
   data: function () {
@@ -24,9 +25,15 @@ export default {
       password: ''
     }
   },
+  mounted() {
+    this.$firebase.auth().onAuthStateChanged((user) => {
+      this.setUser(user)
+    })
+  },
   methods: {
+    ...mapActions({ setUser: 'auth/setUser' }),
     signIn: function () {
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(res => {
+      this.$firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(res => {
         // https://firebase.google.com/docs/auth/admin/verify-id-tokens?hl=ja
         /*firebase.auth().currentUser*/res.user.getIdToken(/* forceRefresh */ true).then(function(idToken) {
           // Send token to your backend via HTTPS

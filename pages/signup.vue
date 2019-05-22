@@ -14,8 +14,6 @@
 </template>
 
 <script>
-/* eslint-disable */
-import firebase from 'firebase'
 export default {
   name: 'Signup',
   data () {
@@ -26,7 +24,7 @@ export default {
   },
   methods: {
     signUp: function () {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res => {
+      this.$firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res => {
         alert('Create account: ' + res.user.email)
       }).catch(error => {
         alert('Error message: ' + error.message)
