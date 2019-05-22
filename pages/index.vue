@@ -57,15 +57,18 @@ export default {
   },
   data: function () {
     return {
-      name: this.$firebase.auth().currentUser
-            ? this.$firebase.auth().currentUser.email
-            : ''
+      name: ''
     }
   },
   mounted() {
     this.$firebase.auth().onAuthStateChanged((user) => {
+      // onAuthStateChanged実行後のみ、ログインユーザ情報にアクセス可能
       this.setUser(user)
       console.log(user)
+      
+      this.name = this.$firebase.auth().currentUser
+            ? this.$firebase.auth().currentUser.email
+            : '';
     })
   },
   computed: {

@@ -9,7 +9,7 @@ export default ({store, isHMR}) => {
 
   if (process.client) {
     window.onNuxtReady((nuxt) => {
-      createPersistedState({ storage: window.sessionStorage })(store); // vuex plugins can be connected to store, even after creation
+      createPersistedState({ storage: window.localStorage })(store); // vuex plugins can be connected to store, even after creation
     });
   }
 };

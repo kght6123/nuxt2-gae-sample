@@ -1,4 +1,5 @@
 const state = () => ({
+  // NOTE: firebaseでユーザ情報は永続化されるので、storeに持つと二重持ちになる
   user: null,
 })
 
