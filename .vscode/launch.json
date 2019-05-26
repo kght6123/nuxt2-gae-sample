@@ -15,7 +15,7 @@
 			"type": "node",
 			"request": "launch",
 			"name": "Launch Program Node.js",
-			"program": "${workspaceFolder}/server/index.js",
+			"program": "${workspaceFolder}/node_modules/.bin/nuxt",
 			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
 			"args": ["--watch","server"],
 			"runtimeArgs": [],
@@ -25,7 +25,8 @@
 			},
 			"sourceMaps": true,
 			"restart": true,
-			"console": "integratedTerminal",
+			//"console": "integratedTerminal",
+			"console": "externalTerminal",
 			"internalConsoleOptions": "neverOpen"
 		}
 	],

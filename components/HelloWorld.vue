@@ -27,16 +27,48 @@ export default {
   },
   mounted() {},
   methods: {
-    apiPublic: async function() {
-      const res = await axios.get('/v1/object/')
-      this.apiMsg = res.data
+    apiPublic: function() {
+      console.log('GET Operation is start.')
+      axios.get('/api/index')
+        // GETがうまくいった場合の動作を記述
+        .then(response => {
+          console.log('status:', response.status);
+          console.log('body:', response.data);
+          this.apiMsg = response.data
+        })
+        // HTTP通信が失敗した場合の動作を記述
+        .catch(err => {
+          console.log('err:', err);
+        })
+        // 成功失敗に限らず行いたい動作を記述
+        .finally(() => {
+          console.log('GET Operation is end.')
+        })
     },
-    apiPrivate: async function() {
+    apiPrivate: function() {
       // alert(localStorage.getItem('jwt'));
-      const res = await axios.get('/v1/user/', {
-        headers: { Authorization: `Bearer ${localStorage.getItem('jwt')}` }
-      })
-      this.apiMsg = res.data
+      console.log('GET Operation is start.')
+      this.$firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        // Send token to your backend via HTTPS
+        axios.get('/api/private', { params: { token: idToken/*localStorage.getItem('jwt')*/ } })
+          // GETがうまくいった場合の動作を記述
+          .then(response => {
+            console.log('status:', response.status);
+            console.log('body:', response.data);
+            this.apiMsg = response.data
+          })
+          // HTTP通信が失敗した場合の動作を記述
+          .catch(err => {
+            console.log('err:', err);
+          })
+          // 成功失敗に限らず行いたい動作を記述
+          .finally(() => {
+            console.log('GET Operation is end.')
+          })
+        
+      }).catch(function(error) {
+        // Handle error
+      });
     }
   }
 }

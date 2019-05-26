@@ -82,7 +82,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 ### Firebase
 
 ```sh
-npm install --save firebase
+npm install --save firebase firebase-admin firebaseui
 ```
 
 ### Stylus
@@ -105,6 +105,14 @@ nuxt.config.js（デフォルト）とpages/index.vue（上書き）、pages/abo
 
 ```sh
 npm install --save vuex-persistedstate
+```
+
+## Uninstall express
+
+```sh
+npm remove express
+rm -R server
+# package.json の scripts を node_modules/.bin/nuxt に変更
 ```
 
 ## Nuxtのデバック環境構築の手順

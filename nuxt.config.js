@@ -4,7 +4,7 @@ const pkg = require('./package')
 try { var defaultEnvConfig = require(`./env.js`) } catch (err) {}
 try { var nodeEnvConfig = require(`./env.${process.env.NODE_ENV}.js`) } catch (err) {}
 try { var nodeEnvHostConfig = require(`./env.${process.env.NODE_ENV}.${process.env.NODE_ENV_HOST}.js`) } catch (err) {}
-const envObj = Object.assign({}, defaultEnvConfig, nodeEnvConfig, nodeEnvHostConfig)
+const envObj = Object.assign({}, defaultEnvConfig, nodeEnvConfig ? nodeEnvConfig : {}, nodeEnvHostConfig ? nodeEnvHostConfig : {})
 
 module.exports = {
   mode: 'universal',
@@ -95,5 +95,10 @@ module.exports = {
   },
   env: envObj,
 
-  
+  serverMiddleware: [
+    //'redirect-ssl',
+    //{ path: '/api', handler: '~/api/index.js' },
+    '~/api/index.js',
+    '~/api/private.js',
+  ],
 }
