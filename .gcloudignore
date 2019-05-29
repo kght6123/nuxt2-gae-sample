@@ -15,3 +15,25 @@
 
 # Node.js dependencies:
 node_modules/
+
+.vscode
+api
+assets
+components
+docker
+layouts
+middleware
+pages
+plugins
+static/README.md
+store
+.editorconfig
+.eslintrc.js
+.prettierrc
+docker-compose.yml
+env.development.js
+env.development.local.js
+env.js
+env.production.js
+nuxt.config.js
+README.md

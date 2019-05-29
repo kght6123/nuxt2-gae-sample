@@ -19,5 +19,5 @@ handlers:
     secure: always
 
 env_variables:
-  NUXT_HOST: '0.0.0.0'
-  NUXT_PORT: '8080'
+  HOST: '0.0.0.0'
+  NODE_ENV: 'production'
