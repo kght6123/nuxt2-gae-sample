@@ -1,0 +1,18 @@
+CREATE TABLE users_t (
+    id INT NOT NULL AUTO_INCREMENT,
+    fb_auth_uid VARCHAR(32) DEFAULT NULL,
+    name VARCHAR(128) DEFAULT NULL,
+		flag TINYINT DEFAULT 0,
+    PRIMARY KEY (id),
+		KEY `users_t_ix1` (`fb_auth_uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    fb_auth_uid VARCHAR(32) DEFAULT NULL,
+    name VARCHAR(128) DEFAULT NULL,
+		flag TINYINT DEFAULT 0,
+    PRIMARY KEY (id),
+		KEY `users_ix1` (`fb_auth_uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+PARTITION BY LINEAR HASH (id) PARTITIONS 64;

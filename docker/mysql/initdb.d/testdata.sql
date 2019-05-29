@@ -1,0 +1,28 @@
+INSERT INTO users_t () VALUES ();
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+INSERT INTO users_t (id) SELECT 0 FROM users_t;
+
+-- UPDATE users_t SET foo_id = CEIL(RAND()*1000), content = MD5(RAND());
+INSERT INTO users SELECT * FROM users_t;
