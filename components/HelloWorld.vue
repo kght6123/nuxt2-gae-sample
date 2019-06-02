@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div id="shot" class="hello">
     <h1>{{ msg }} Hello World!!</h1>
     <h2>{{ apiMsg }}</h2>
     <h3>API Links</h3>
@@ -14,6 +14,7 @@
       <iframe id="feedback" src="https://docs.google.com/forms/d/e/1FAIpQLSeB5JTxpbVDRKkkTlpatHvzysWQAa1RHBIdSvGsygvxhyhIwQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます...</iframe>
     </modal>
     <button @click="show">Show modal!!!</button>
+    <button @click="screenshot">Screen Shot!!!</button>
   </div>
 </template>
 
@@ -34,7 +35,7 @@ export default {
       apiMsg: 'API Message'
     }
   },
-  mounted() {},
+  mounted() { if (process.browser) { this.screenshot(); } },
   methods: {
     apiPublic: function() {
       console.log('GET Operation is start.')
@@ -84,7 +85,15 @@ export default {
     },
     hide () {
       this.$modal.hide('hello-world');
-    }
+    },
+    screenshot () {
+      if (process.browser) { 
+        const html2canvas = require('html2canvas');
+        html2canvas(document.body).then(function (canvas) {
+          document.body.appendChild(canvas)
+        });
+      }
+    },
   }
 }
 </script>

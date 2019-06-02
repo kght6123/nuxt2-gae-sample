@@ -133,6 +133,14 @@ npm install --save @fortawesome/vue-fontawesome @fortawesome/fontawesome-svg-cor
 
 https://github.com/FortAwesome/vue-fontawesome#integrating-with-other-tools-and-frameworks
 
+https://github.com/FortAwesome/vue-fontawesome#add-more-styles-or-pro-icons
+
+## html2canvas
+
+```sh
+npm install --save html2canvas
+```
+
 ## Nuxtのデバック環境構築の手順
 
 ### 設定追加
