@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const pkg = require('./package')
 
 // read env.
@@ -40,12 +41,19 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: [
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [ '~/plugins/firebase.js', { src: "~plugins/persistedstate.js", ssr: false } ],
+  plugins: [
+    '~/plugins/firebase.js',
+    { src: "~/plugins/persistedstate.js", ssr: false },
+    '~/plugins/vue-js-modal',
+    '~/plugins/fontawesome.js'
+  ],
 
   /*
    ** Nuxt.js modules
@@ -77,6 +85,17 @@ module.exports = {
    ** Build configuration
    */
   build: {
+    /**
+     * add external plugins
+     */
+    vendor: ['jquery', 'bootstrap', 'popper.js'],
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ],
     /*
      ** You can extend webpack config here
      */

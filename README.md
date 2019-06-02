@@ -33,6 +33,8 @@ npx create-nuxt-app nuxt2-gae-sample
 # set package manager -> npm
 cd nuxt2-gae-sample
 npm run dev # http://localhost:3000
+# 外部アクセス可
+npm run dev -- --hostname `ifconfig en0 | awk '/inet / { print $2 }'`
 ```
 
 ### PWAの設定
@@ -60,6 +62,8 @@ module.exports = {
 npm run build
 # サーバー起動
 npm start
+# 外部アクセス可
+npm run start -- --hostname `ifconfig en0 | awk '/inet / { print $2 }'`
 ```
 
 ### GCPのプロジェクトを設定
@@ -114,6 +118,20 @@ npm remove express
 rm -R server
 # package.json の scripts を node_modules/.bin/nuxt に変更
 ```
+
+## Vue.js modal
+
+```sh
+npm install --save vue-js-modal
+```
+
+## fortawesome
+
+```sh
+npm install --save @fortawesome/vue-fontawesome @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
+```
+
+https://github.com/FortAwesome/vue-fontawesome#integrating-with-other-tools-and-frameworks
 
 ## Nuxtのデバック環境構築の手順
 

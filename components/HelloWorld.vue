@@ -5,6 +5,15 @@
     <h3>API Links</h3>
     <button @click="apiPublic">Public API</button>
     <button @click="apiPrivate">Private API</button>
+    <modal name="hello-world" :resizable="true" :adaptive="true" :draggable="true" :scrollable="true" height="auto">
+      <div class="modal-header">
+        <div @click="hide" class="modal-header-icon">
+          <font-awesome-icon icon="times" size="2x" :style="{ color: 'rgba(0,0,0,0.50)' }" />
+        </div>
+      </div>
+      <iframe id="feedback" src="https://docs.google.com/forms/d/e/1FAIpQLSeB5JTxpbVDRKkkTlpatHvzysWQAa1RHBIdSvGsygvxhyhIwQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます...</iframe>
+    </modal>
+    <button @click="show">Show modal!!!</button>
   </div>
 </template>
 
@@ -69,7 +78,38 @@ export default {
       }).catch(function(error) {
         // Handle error
       });
+    },
+    show () {
+      this.$modal.show('hello-world');
+    },
+    hide () {
+      this.$modal.hide('hello-world');
     }
   }
 }
 </script>
+
+<style>
+.v--modal-overlay[data-modal="hello-world"] {
+  backdrop-filter: blur(10px);
+}
+.v--modal {
+  background-color: rgba(0,0,0,0.50);
+  box-shadow: none;
+}
+.modal-header {
+  position: relative;
+  height: 2em;
+}
+.modal-header-icon {
+  position: absolute;
+  top: 0.15em;
+  right: 1.2em;
+  width: 1em;
+  height: 1em;
+}
+#feedback {
+  width: 100%;
+  height: 75vh;
+}
+</style>
