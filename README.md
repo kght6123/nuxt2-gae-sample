@@ -141,6 +141,11 @@ https://github.com/FortAwesome/vue-fontawesome#add-more-styles-or-pro-icons
 npm install --save html2canvas
 ```
 
+## FirebaseUI(ja)化
+
+Nuxt/VuexでFirebase Authenticationを使ってユーザー認証機能を作る
+https://blog.ikedaosushi.com/entry/2019/04/17/201246
+
 ## Nuxtのデバック環境構築の手順
 
 ### 設定追加
