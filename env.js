@@ -1,9 +1,11 @@
 module.exports = {
 	appName: '',
-	fbApiKey: '',
-	fbAuthDomain: '',
-	fbDbUrl: '',
-	fbProjectId: '',
-	fbStorBkt: '',
-	fbMsgSenderId: ''
+	firebaseConfig: {
+		apiKey: '',
+		authDomain: '',
+		databaseURL: '',
+		projectId: '',
+		storageBucket: '',
+		messagingSender_Id: '',
+	}
 }

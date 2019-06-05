@@ -18,17 +18,17 @@ export default {
   name: 'Signup',
   data () {
     return {
-      email: '',
-      password: ''
+      // email: '',
+      // password: ''
     }
   },
   methods: {
     signUp: function () {
-      this.$firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res => {
-        alert('Create account: ' + res.user.email)
-      }).catch(error => {
-        alert('Error message: ' + error.message)
-      })
+      // this.$firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(res => {
+      //   alert('Create account: ' + res.user.email)
+      // }).catch(error => {
+      //   alert('Error message: ' + error.message)
+      // })
     }
   }
 }

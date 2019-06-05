@@ -120,4 +120,8 @@ module.exports = {
     '~/api/index.js',
     '~/api/private.js',
   ],
+
+  router: {
+    middleware: ['authenticated']
+  },
 }

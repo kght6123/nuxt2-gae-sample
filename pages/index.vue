@@ -23,14 +23,18 @@
         <div class="form-group"></div>
         <NuxtLink to="/about" class="btn btn-dark">About page</NuxtLink>
         <!-- ログイン中に表示される画面 -->
-        <div v-if="isAuthenticated">
+        <!-- <div v-if="isAuthenticated">
           {{ user.email }}でログイン中です。{{ name }}<br>
           <button @click="logout">Sign Out</button>
-        </div>
+        </div> -->
         <!-- ログインしていない時に表示される画面 -->
-        <div v-else>
+        <!-- <div v-else> -->
           <NuxtLink to="/signin" class="btn btn-info">Sign In</NuxtLink>
-          <NuxtLink to="/signup" class="btn btn-outline-info">Sign Up</NuxtLink>
+          <!-- <NuxtLink to="/signup" class="btn btn-outline-info">Sign Up</NuxtLink> -->
+        <!-- </div> -->
+        <div v-if="isLoggedIn">
+          {{username}} でログイン中です。
+          <button @click="logout">Sign Out</button>
         </div>
       </form>
     </div>
@@ -61,34 +65,41 @@ export default {
     }
   },
   mounted() {
-    this.$firebase.auth().onAuthStateChanged((user) => {
-      // onAuthStateChanged実行後のみ、ログインユーザ情報にアクセス可能
-      this.setUser(user)
-      console.log(user)
+    // this.$firebase.auth().onAuthStateChanged((user) => {
+    //   // onAuthStateChanged実行後のみ、ログインユーザ情報にアクセス可能
+    //   this.setUser(user)
+    //   console.log(user)
       
-      this.name = this.$firebase.auth().currentUser
-            ? this.$firebase.auth().currentUser.email
-            : '';
-    })
+    //   this.name = this.$firebase.auth().currentUser
+    //         ? this.$firebase.auth().currentUser.email
+    //         : '';
+    // })
   },
   computed: {
-    ...mapState({
-      user: state => state.auth.user
-    }),
-    ...mapGetters({ isAuthenticated: 'auth/isAuthenticated' })
+    ...mapState("auth", [
+      "username"
+    ]),
+    ...mapGetters("auth", [
+      "isLoggedIn"
+    ])
+    // ...mapState({
+    //   user: state => state.auth.user
+    // }),
+    // // ...mapGetters({ isAuthenticated: 'auth/isAuthenticated' })
   },
   methods : {
-    ...mapActions({ setUser: 'auth/setUser' }),
-    logout() {
-      this.$firebase.auth().signOut()
-      .then(() => {
-        this.setUser(null)
-        localStorage.removeItem('jwt')
-        this.$router.push('/signin')
-      }).catch((error) => {
-        alert(error)
-      })
-    }
+    ...mapActions("auth", ["logout"]),
+    // ...mapActions({ setUser: 'auth/setUser' }),
+    // logout() {
+      // this.$firebase.auth().signOut()
+      // .then(() => {
+      //   this.setUser(null)
+      //   localStorage.removeItem('jwt')
+      //   this.$router.push('/signin')
+      // }).catch((error) => {
+      //   alert(error)
+      // })
+    // }
   }
 }
 </script>
