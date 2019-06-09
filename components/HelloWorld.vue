@@ -15,6 +15,7 @@
     </modal>
     <button @click="show">Show modal!!!</button>
     <button @click="screenshot">Screen Shot!!!</button>
+    <button @click="share">共有</button>
   </div>
 </template>
 
@@ -94,6 +95,22 @@ export default {
         });
       }
     },
+    share () {
+      if (navigator.share) {
+        // Chrome 61以上のAndroidと、iOS/MacのSafari 12.2以上で動く
+        navigator.share({
+          title: 'WebShare API Demo',
+          url: 'https://codepen.io/ayoisaiah/pen/YbNazJ',
+          text: 'demo pages.'
+        }).then(() => {
+          console.log('Thanks for sharing!');
+        })
+        .catch(console.error);
+      } else {
+        // fallback
+        alert('ブラウザが対応してないよ！');
+      }
+    }
   }
 }
 </script>
