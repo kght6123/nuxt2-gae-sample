@@ -211,4 +211,8 @@ nuxt.config.jsの63〜70に`config.devtool`の設定を追加
 },
 ```
 
+## Bootstrapのカスタマイズ
+
+下記のサイトを参考に実施した
+https://medium.com/coiney-product-team/%E3%81%86%E3%82%8F%E3%81%A3-%E7%A7%81%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88bootstrap%E3%81%8F%E3%81%95%E3%81%99%E3%81%8E-%E3%81%9F%E3%81%A3%E3%81%9F%E6%95%B0%E6%96%87%E5%AD%97%E5%A4%89%E3%81%88%E3%82%8B%E3%81%A0%E3%81%91%E3%81%A7bootstrap%E3%81%AE%E3%81%8F%E3%81%95%E3%81%BF%E3%81%8C%E6%8A%9C%E3%81%91%E3%82%8B7%E3%81%A4%E3%81%AEcss%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-6cd1c3b8410a
 

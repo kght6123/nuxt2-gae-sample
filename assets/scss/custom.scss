@@ -1,0 +1,67 @@
+// レスポンシブフォントサイズ(RFS)を有効に
+$enable-respond-font-sizes: true;
+
+// 行間にゆとりを持たせる
+$headings-line-height: 1.5;
+$line-height-base: 1.65;
+
+* {
+	// 字間にゆとりを持たせる
+	letter-spacing: .1em !important;
+	// 文字の均等割り付けをデフォルトにする
+	text-align: justify;
+}
+
+// 文字色の調和をとる
+$gray-dark: #546E7A;
+
+// 日本語のフォントを指定する
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Medium");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Yu Gothic";
+  src: local("Yu Gothic Bold");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Helvetica Neue";
+  src: local("Helvetica Neue Regular");
+  font-weight: 200;
+}
+
+// IE hack
+@media all and (-ms-high-contrast: none) {
+  body,
+  tooltip,
+  popover {
+    font-family: Verdana, Meiryo, sans-serif;
+  }
+}
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
