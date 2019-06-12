@@ -221,3 +221,75 @@ https://medium.com/coiney-product-team/%E3%81%86%E3%82%8F%E3%81%A3-%E7%A7%81%E3%
 主のAndroidとiOSで対応しているので、その時の処理としてはありかも。
 
 https://css-tricks.com/how-to-use-the-web-share-api/
+
+## Cloud Data storeを使ってみる
+
+GAEを有効にしないと使えないので注意する
+
+Cloud Firestore Datastoreモード(新)と、Cloud Datastore(旧)、Cloud Forestore Nativeモード(Firestore後継)がある。
+
+https://cloud.google.com/firestore/docs/firestore-or-datastore?_ga=2.80797328.-645130026.1559095119
+
+DatastoreモードではGQL(SQLもどき)が使えそう、しかし、Nativeモードは使えない。
+
+BigQueryを使うことになりそう。（溶かさない様に気をつける）
+
+https://medium.com/google-cloud-jp/firestore-bigquery-3b887a5bc27e
+
+Cloud Firestore Nativeモードはfirebaseのコンソールから作るっぽい
+
+
+### 接続モジュールのインストール
+
+```sh
+npm install --save @google-cloud/datastore
+```
+
+### エミュレータのインストール
+
+https://cloud.google.com/datastore/docs/tools/datastore-emulator?hl=ja
+
+```sh
+gcloud components install cloud-datastore-emulator
+gcloud beta emulators datastore start #--data-dir=./dse
+```
+
+### エミュレータへ接続する環境変数を設定
+
+#### 自動
+
+```sh
+$(gcloud beta emulators datastore env-init)
+npm run dev
+$(gcloud beta emulators datastore env-unset)
+```
+
+#### 手動
+
+```sh
+gcloud beta emulators datastore env-init
+# コマンドの指示に従う
+npm run dev
+gcloud beta emulators datastore env-unset
+# コマンドの指示に従う
+```
+
+### 認証方法
+
+```sh
+gcloud auth application-default login
+```
+
+https://cloud.google.com/datastore/docs/tools/datastore-emulator?hl=ja
+
+## スポットライトナビ（第七課題）
+
+https://blog.knowledgecode.jp/entries/2017-12-16/searchlight-effect-using-svg.html
+
+## tensorflow board＆tensorflow.jsを使ってみる（第二課題）
+
+## 既存wordpressをGCPに移行する（第三課題）
+
+## Riot.js（第六課題）
+
+https://riot.js.org/ja/
