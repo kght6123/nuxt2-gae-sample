@@ -222,9 +222,9 @@ https://medium.com/coiney-product-team/%E3%81%86%E3%82%8F%E3%81%A3-%E7%A7%81%E3%
 
 https://css-tricks.com/how-to-use-the-web-share-api/
 
-## Cloud Data storeを使ってみる
+## Cloud Datastoreを使ってみる
 
-GAEを有効にしないと使えないので注意する
+DatastoreはGAEを有効にしないと使えないので注意する
 
 Cloud Firestore Datastoreモード(新)と、Cloud Datastore(旧)、Cloud Forestore Nativeモード(Firestore後継)がある。
 
@@ -238,14 +238,37 @@ https://medium.com/google-cloud-jp/firestore-bigquery-3b887a5bc27e
 
 Cloud Firestore Nativeモードはfirebaseのコンソールから作るっぽい
 
+### Firestoroの設計
 
-### 接続モジュールのインストール
+https://qiita.com/1amageek/items/d606dcee9fbcf21eeec6
+
+https://qiita.com/samuraikun/items/dfe7d1081f62359b0dcd
+
+### Firestoreローカルエミュレータを使う
+
+https://qiita.com/aono/items/56d987963d3c56466baf
+
+#### Docker
+
+https://github.com/Gnucki/firestore-emulator-hello-world
+
+Node.jsやGoから接続するときのみ使える
+
+### Firestoreの使い方（Web,Node.js）
+
+https://firebase.google.com/docs/firestore/quickstart?hl=ja
+
+### Firestoreセキュリティルールを設定する
+
+https://firebase.google.com/docs/firestore/security/get-started?hl=ja
+
+### Datastore接続モジュールのインストール
 
 ```sh
 npm install --save @google-cloud/datastore
 ```
 
-### エミュレータのインストール
+### Datasotreエミュレータのインストール
 
 https://cloud.google.com/datastore/docs/tools/datastore-emulator?hl=ja
 
@@ -254,7 +277,7 @@ gcloud components install cloud-datastore-emulator
 gcloud beta emulators datastore start #--data-dir=./dse
 ```
 
-### エミュレータへ接続する環境変数を設定
+### Datastoreエミュレータへ接続する環境変数を設定
 
 #### 自動
 
