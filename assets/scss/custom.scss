@@ -9,7 +9,9 @@ $line-height-base: 1.65;
 	// 字間にゆとりを持たせる
 	letter-spacing: .1em !important;
 	// 文字の均等割り付けをデフォルトにする
-	text-align: justify;
+  text-align: justify;
+  // レスポンシブフォントサイズ
+  font-size: calc(100vmin / 26.5);
 }
 
 // 文字色の調和をとる

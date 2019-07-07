@@ -52,7 +52,8 @@ module.exports = {
     '~/plugins/firebase.js',
     { src: "~/plugins/persistedstate.js", ssr: false },
     '~/plugins/vue-js-modal',
-    '~/plugins/fontawesome.js'
+    '~/plugins/fontawesome.js',
+    { src: '~/plugins/infiniteloading', ssr: false }
   ],
 
   /*

@@ -21,6 +21,7 @@
       </div>
       <form>
         <div class="form-group"></div>
+        <NuxtLink to="/search" class="btn btn-info">Search</NuxtLink>
         <NuxtLink to="/about" class="btn btn-dark">About page</NuxtLink>
         <!-- ログイン中に表示される画面 -->
         <!-- <div v-if="isAuthenticated">

@@ -86,3 +86,5 @@ sw.*
 # local env files
 env.local.js
 env.*.local.js
+env.development.js
+env.production.js

@@ -7,5 +7,10 @@ module.exports = {
 		projectId: '',
 		storageBucket: '',
 		messagingSender_Id: '',
+	},
+	algoliaConfig: {
+		appId: '',
+		apiKey: '',
+		index: '',
 	}
 }

@@ -309,6 +309,29 @@ https://cloud.google.com/datastore/docs/tools/datastore-emulator?hl=ja
 
 https://blog.knowledgecode.jp/entries/2017-12-16/searchlight-effect-using-svg.html
 
+## algolia横スクロール
+
+```sh
+npm install --save vue-infinite-loading
+```
+
+`plugins/infiniteloading.js` を作成
+
+```js
+import Vue from 'vue'
+import InfiniteLoading from 'vue-infinite-loading'
+
+Vue.component('infinite-loading', InfiniteLoading)
+```
+
+`nuxt.config.js` に追加
+
+```js
+  plugins: [
+    { src: '~/plugins/infiniteloading', ssr: false }
+  ],
+```
+
 ## tensorflow board＆tensorflow.jsを使ってみる（第二課題）
 
 ## 既存wordpressをGCPに移行する（第三課題）
@@ -316,3 +339,8 @@ https://blog.knowledgecode.jp/entries/2017-12-16/searchlight-effect-using-svg.ht
 ## Riot.js（第六課題）
 
 https://riot.js.org/ja/
+
+## テスト用のJSONを入手する
+
+https://github.com/amio/emoji.json
+https://next.json-generator.com
