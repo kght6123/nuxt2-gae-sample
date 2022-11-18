@@ -29,7 +29,7 @@
     "firebaseui-web-ja": "github:kght6123/firebaseui-web-ja#v3.6.1_ja",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "nuxt": "^2.4.0",
+    "nuxt": "^2.15.8",
     "popper.js": "^1.15.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
